@@ -34,6 +34,8 @@ public class NeeDeezNuts : MonoBehaviour{
         module.SetResetDelayTime(30f,50f);
     }
     void DickPress(KMSelectable Dick){
+      Dick.AddInteractionPunch();
+      Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, Dick.transform);
       for (int i = 0; i < 4; i++) {
         if (Dick == MasherTheBottun[i] && Wheufhahekfhe[i] == true) {
           Debug.LogFormat("[NeeDeez Nuts #{0}] Deez nuts!", moduleId);
