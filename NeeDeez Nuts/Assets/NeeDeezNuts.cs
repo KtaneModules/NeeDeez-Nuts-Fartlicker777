@@ -84,4 +84,48 @@ public class NeeDeezNuts : MonoBehaviour{
             OnNeedyDeactivation();
         }
     }
+    //I add the twitch plays
+    #pragma warning disable 414
+    private readonly string TwitchHelpMessage = @"!{0} press TL/TR/BL/BR to press the corresponding button.";
+    #pragma warning restore 414
+    IEnumerator ProcessTwitchCommand(string command){
+      command = command.Trim();
+      string[] parameters = command.Split(' ');
+      if (parameters.Length > 2) {
+        yield return null;
+        yield return "sendtochaterror Too many words";
+        yield break;
+      }
+      else if (parameters.Length == 2) {
+        yield return null;
+        if (parameters[0].ToUpper() == "PRESS") {
+          if (parameters[1].ToUpper() == "TL") {
+            MasherTheBottun[0].OnInteract();
+          }
+          else if (parameters[1].ToUpper() == "TR") {
+            MasherTheBottun[1].OnInteract();
+          }
+          else if (parameters[1].ToUpper() == "BL") {
+            MasherTheBottun[3].OnInteract();
+          }
+          else if (parameters[1].ToUpper() == "BR") {
+            MasherTheBottun[2].OnInteract();
+          }
+          else {
+            yield return "sendtochaterror Invalid command.";
+            yield break;
+          }
+        }
+        else {
+          yield return null;
+          yield return "sendtochaterror Invalid command.";
+          yield break;
+        }
+      }
+      if (parameters.Length < 2) {
+        yield return null;
+        yield return "sendtochaterror Too little words";
+        yield break;
+      }
+    }
 }
