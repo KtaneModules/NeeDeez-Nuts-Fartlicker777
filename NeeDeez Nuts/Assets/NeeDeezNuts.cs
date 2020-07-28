@@ -55,10 +55,6 @@ public class NeeDeezNuts : MonoBehaviour{
           module.OnStrike();
           Dick.AddInteractionPunch();
           Audio.PlayGameSoundAtTransform(KMSoundOverride.SoundEffect.ButtonPress, Dick.transform);
-          for (int j = 0; j < 4; j++) {
-            Wheufhahekfhe[j] = false;
-            IWillBombTheAtlanticOcean[j].text = "Got Eeem!";
-          }
         }
       }
     }
