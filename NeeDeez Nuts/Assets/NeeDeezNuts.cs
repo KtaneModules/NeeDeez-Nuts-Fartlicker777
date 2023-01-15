@@ -128,4 +128,18 @@ public class NeeDeezNuts : MonoBehaviour {
          yield break;
       }
    }
+
+   void TwitchHandleForcedSolve()
+   { 
+      StartCoroutine(HandleAutosolve());
+   }
+
+   IEnumerator HandleAutosolve()
+   {
+      while (true)
+      {
+         while (!active) yield return null;
+         Buttons[Array.IndexOf(HasDeezNuts, true)].OnInteract();
+      }
+   }
 }
